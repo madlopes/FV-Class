@@ -1,0 +1,29 @@
+FROM python:3.9.9
+
+COPY ./docker/  docker/
+
+# Rinerator setup
+WORKDIR /usr/bin/
+RUN ln -s /docker/artifacts/probe/probe.2.16r72.130520 probe \
+    && ln -s /docker/artifacts/reduce/reduce.3.23.130521 reduce
+
+WORKDIR /RINerator_V0.5.1
+RUN wget https://rinalyzer.de/rinerator/RINerator_V0.5.1.tar.gz \
+    && tar xzf RINerator_V0.5.1.tar.gz --strip-components=1 \
+    && rm RINerator_V0.5.1.tar.gz
+
+# Installing python 2.7
+WORKDIR /usr/src
+RUN apt-get update \
+    && apt-get install build-essential checkinstall \
+    && wget https://www.python.org/ftp/python/2.7.18/Python-2.7.18.tgz \
+    && tar xzf Python-2.7.18.tgz \
+    && cd Python-2.7.18 \
+    && ./configure --enable-optimizations \
+    && make altinstall \
+    && wget https://bootstrap.pypa.io/pip/2.7/get-pip.py \
+    && python2.7 get-pip.py \
+    && pip2 install -r /docker/python2_requirements.txt \
+    && pip3 install -r /docker/python3_requirements.txt
+
+WORKDIR /main
