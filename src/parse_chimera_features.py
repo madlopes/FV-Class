@@ -75,10 +75,10 @@ def create_save_location(path:str):
 
     if not path:
         Path("results").mkdir(parents=True, exist_ok=True)
-        output_path = os.path.join("results", f"7kve_structure.csv")
+        output_path = os.path.join("results", f"7KVE_relaxed_structure.csv")
     
     elif os.path.isdir(path):
-        output_path = os.path.join(path, f"7kve_structure.csv")
+        output_path = os.path.join(path, f"7KVE_relaxed_structure.csv")
 
     else:
         output_path = path
