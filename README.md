@@ -3,9 +3,9 @@ Bioinformatics and machine learning frameworks designed to study FV-deficiency.
 
 In this work, we study the **Factor V** (code: **7KVE**), although in the final paper we used a relaxed version of the structure, whose structure you can find [here](./data/7KVE_relaxed.pdb).
 
-This repository aims to show how pipeline shown in this figure was built.
+This repository aims to show how the pipeline shown in this figure was built.
 
-<center><img src="figures/docker_compose_up.png" width=500px/></center>
+<center><img src="figures/pipeline.png" width=500px/></center>
 
 
 # **Setup Enviroment**
