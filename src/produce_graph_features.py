@@ -358,7 +358,7 @@ def extract_graph_features(prot="7KVE_relaxed", path_data="../data/igraph/",
     if write:
         save_path = os.path.join(path_data, 'out', f"{prot}_graph_features_{str_uni}{str_inter}.csv")
         df_graph.to_csv(save_path, index=False)
-        print(f"\nFile saved in {save_path}!\n")
+        # print(f"\nFile saved in {save_path}!\n")
         
     return df_graph
 

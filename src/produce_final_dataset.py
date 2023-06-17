@@ -57,10 +57,10 @@ def merge_produce_final_graph(
 
 #______________________________________________
 
-def read_data(prot = "7KVE_clean",
-              str_uni = "unidirectional", unidirectional = True,
-              str_inter = "", filter_inter = False,
-              weighted=False):
+def read_all_data(prot = "7KVE_clean",
+                  str_uni = "unidirectional", unidirectional = True,
+                  str_inter = "", filter_inter = False,
+                  weighted=False):
     
 
     df_mutation_graph = merge_produce_final_graph(
@@ -109,7 +109,7 @@ def read_data(prot = "7KVE_clean",
     keys = ['Legacy.Amino.Acid', 'node', ' POS', 'number']
     df_mgsc = df_mgsc[keys + [x for x in df_mgsc.columns if x not in keys]].copy()
 
-    print(f"\nShape of data: {df_mgsc.shape}, {df_structure.shape}, {df_conservation.shape}")
+    # print(f"\nShape of data: {df_mgsc.shape}, {df_structure.shape}, {df_conservation.shape}")
     
     return df_mgsc, df_structure, df_conservation
 
@@ -142,7 +142,6 @@ def get_user_args():
 
 #_________________________________________________
 
-# dafuq?
 def main():
     parser = get_user_args()
     args = parser.parse_args()
