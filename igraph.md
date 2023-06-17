@@ -34,3 +34,10 @@ Some files will be generated in the folder previously provided.
 - The ```_intsc.ea``` file contains a score for every interactions.
 
 - The  ```_nrint.ea``` file contains the number of interactions.
+
+
+# RODRIGO
+
+Steps:
+
+3 - python2.7 ./RINerator_V0.5.1/Source/get_chains.py data/7KVE_relaxed.pdb data/igraph/in/ data/igraph/auxiliar/chains.txt
