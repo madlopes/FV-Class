@@ -1,7 +1,6 @@
 # **FV-Class**
-Bioinformatics and machine learning frameworks designed to study FV-deficiency.
 
-In this work, we study the **Factor V** (code: **7KVE**), although in the final paper we used a relaxed version of the structure, whose structure you can find [here](./data/7KVE_relaxed.pdb).
+A bioinformatics and machine learning framework designed to study FV-deficiency of the **Factor V** (code: **7KVE**), although in the final paper we used a relaxed version of the structure, whose structure you can find [here](./data/7KVE_relaxed.pdb). The paper is available [here](https://doi.org/10.1038/s41598-023-36528-z).
 
 This repository aims to show how the pipeline shown in this figure was built.
 
@@ -53,3 +52,14 @@ The `FV_mutations.csv` dataset available [here](./data/FV_mutations.csv) is the 
 # **Cite**
 
 > Ferreira-Martins, A.J., Castaldoni, R., Alencar, B.M. et al. Full-scale network analysis reveals properties of the FV protein structure organization. Sci Rep 13, 9546 (2023). https://doi.org/10.1038/s41598-023-36528-z
+
+# **Contact**
+
+André Juan Ferreira Martins:
+- email: andre.jfmdm@gmail.com
+
+Rodrigo Cabrera Castaldoni:
+- email: castaldoniro@gmail.com
+
+Tiago Jose da Silva Lopes:
+- email: tiago-jose@ncchd.go.jp
