@@ -1,0 +1,51 @@
+#  Use this file to assign the attribute in Chimera with the
+#  Define Attribute tool or the command defattr.
+#
+#  Solvent-excluded surface area (SESA) of amino acid residue X in Gly-X-Gly 
+#  tripeptide, from supplementary Table S1 (revised) of:
+#
+#    Transient protein-protein interface prediction: datasets, features, 
+#    algorithms, and the RAD-T predictor.
+#    Bendell CJ, Liu S, Aumentado-Armstrong T, Istrate B, Cernek PT, Khan S, 
+#    Picioreanu S, Zhao M, Murgita RA.
+#    BMC Bioinformatics. 2014 Mar 24;15:82. doi: 10.1186/1471-2105-15-82.
+#    http://www.biomedcentral.com/1471-2105/15/82
+#
+#  These values may be useful for normalizing areaSES, e.g.
+#  Attribute Calculator formula for new residue attribute relSESA
+#      residue.areaSES/residue.areaSESgxg
+#
+#  Notes:
+#  - less applicable to terminal residues and residues with missing atoms
+#  - applies only to standard amino acids (not MSE, etc.)
+#  - Dock Prep could be used to repair truncated sidechains, mutate MSE->MET,
+#   but turning off (unchecking) hydrogen addition and other options is 
+#   recommended for purposes of surface area calculation
+#  - normalized areas may exceed 1.0 because the areas in the Gly-X-Gly
+#   reference state are not the maximum possible areas
+#  - depending on the definition of the reference state, there may be other
+#   equally valid sets of normalization denominators
+#
+attribute: areaSESgxg
+recipient: residues
+	:gly	47.155
+	:ala	61.063
+	:ser	69.073
+	:cys	78.62
+	:pro	81.03
+	:thr	82.92
+	:asp	86.142
+	:val	90.264
+	:asn	90.541
+	:glu	102.57
+	:ile	105.307
+	:leu	105.842
+	:gln	106.534
+	:his	110.864
+	:met	112.01
+	:lys	120.502
+	:phe	124.714
+	:tyr	130.885
+	:arg	138.595
+	:trp	148.915
+
