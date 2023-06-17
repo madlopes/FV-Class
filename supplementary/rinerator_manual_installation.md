@@ -1,4 +1,4 @@
-# RINerator
+# Rinerator Setup
 
 The RINerator software can be downloaded [here](https://rinalyzer.de/rinerator.php). The version used is 0.5.1, released on December 2014.
 
@@ -24,13 +24,3 @@ The RINerator software can be downloaded [here](https://rinalyzer.de/rinerator.p
 - Run the following command: ```python ./RINerator_V0.5.1/Source/get_chains.py <structure.pdb> <output_directory> <chains.txt>```
     - Make sure you are running the correct python version with: ```python --version```.
     - Make sure the dependencies are correct installed with: ```pip list```.
-
-**Output:**
-
-Some files will be generated in the folder previously provided. 
-
-- The ```.sif``` file is a graph delimeted by ```:```. Where in each line there is the type and subtype of the interaction, for instance ```cnt:mc_sc``` means *main chain*, *side chain*.
-
-- The ```_intsc.ea``` file contains a score for every interactions.
-
-- The  ```_nrint.ea``` file contains the number of interactions.
