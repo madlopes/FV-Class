@@ -55,8 +55,7 @@ With this files, proceed to executing the ```parse_chimera_features.py``` script
 
 - **Enter in `src` folder and execute**
 ```shell
-python parse_chimera_features.py -ip="../data/ch
-imera/in" -op="../data/chimera/out"
+python parse_chimera_features.py
 ```
 Obs: We are using python version 3.9.9 which is available in the Docker image provided in this repository. 
 

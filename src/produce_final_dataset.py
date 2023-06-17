@@ -1,11 +1,11 @@
 from produce_graph_features import *
 
-def read_mutations_dataset(path_mutation=".."):
+def read_mutations_dataset(path_mutation="../data"):
     '''
     reads and returns the mutations dataset
     '''
     
-    path = f"{path_mutation}/mutation_eahad/results/F5_multiple_cases_v3.csv"
+    path = f"{path_mutation}/FV_mutations.csv"
 
     df_mutation = pd.read_csv(path)
     
@@ -16,10 +16,12 @@ def read_mutations_dataset(path_mutation=".."):
 
 #______________________________________________
 
-def merge_produce_final(prot="7KVE", path_data = ".", path_mutation=".",
-                        str_uni="unidirectional", unidirectional=True,
-                        str_inter="", filter_inter=False, 
-                        write=True, merge_how="left", weighted=False):
+def merge_produce_final_graph(
+    prot="7KVE_relaxed", path_data = "../data/igraph/", path_mutation="../data/",
+    str_uni="unidirectional", unidirectional=True,
+    str_inter="", filter_inter=False, 
+    write=True, merge_how="left", weighted=False
+):
     '''
     read the dataset with graph features, and merge it with the mutations dataset.
     arg "merge_how" controls if NaNs are to be dropped:
@@ -61,11 +63,13 @@ def read_data(prot = "7KVE_clean",
               weighted=False):
     
 
-    df_mutation_graph = merge_produce_final(prot=prot, 
-                                            str_uni=str_uni, unidirectional=unidirectional,
-                                            str_inter=str_inter, filter_inter=filter_inter,
-                                            path_data = "./graph_features", write=True,
-                                            merge_how="inner", weighted=weighted)
+    df_mutation_graph = merge_produce_final_graph(
+        prot=prot, 
+        path_data = "../data/igraph/", path_mutation="../data/",
+        str_uni=str_uni, unidirectional=unidirectional,
+        str_inter=str_inter, filter_inter=filter_inter,
+        write=True, merge_how="inner", weighted=weighted
+    )
 
     # print(f"\n\nShape of data: {df_mutation_graph.shape}")
 
@@ -75,13 +79,14 @@ def read_data(prot = "7KVE_clean",
     # python parse_chimera_features.py -ip=f"data/{prot}"
     # to create the file. (See "explain" notebook in chimera folder for details)
 
-    chimera_path = os.path.join("chimera", "results", f"{prot}_structure.csv")
+    chimera_path = os.path.join("../data/chimera", "out", f"{prot}_structure.csv")
 
+    # to-do: CRIAR O CSV!!!!
     df_structure = pd.read_csv(chimera_path)
 
     ##########################################
 
-    conservation_path = os.path.join("conservation_score", "data", "conservation_FV.csv")
+    conservation_path = os.path.join("../data", "FV_conservation.csv")
 
     df_conservation = pd.read_csv(conservation_path, sep="\t")
 
@@ -104,7 +109,7 @@ def read_data(prot = "7KVE_clean",
     keys = ['Legacy.Amino.Acid', 'node', ' POS', 'number']
     df_mgsc = df_mgsc[keys + [x for x in df_mgsc.columns if x not in keys]].copy()
 
-    # print(f"\nShape of data: {df_mgsc.shape}")
+    print(f"\nShape of data: {df_mgsc.shape}, {df_structure.shape}, {df_conservation.shape}")
     
     return df_mgsc, df_structure, df_conservation
 
@@ -115,13 +120,19 @@ def get_user_args():
     args = argparse.ArgumentParser()
 
     args.add_argument('--prot',
-                      default="7KVE", 
+                      default="7KVE_relaxed", 
                       help='Protein PDB code.')
+    args.add_argument('--str_uni', 
+                      default="unidirectional", 
+                      help='Select only the lowest connection score.')
     args.add_argument('--unidirectional', 
                       default=True, 
                       help='Select only the lowest connection score.')
     args.add_argument('--filter_inter', 
                       default=False, 
+                      help='Select different protein interactions.')
+    args.add_argument('--str_inter', 
+                      default="", 
                       help='Select different protein interactions.')
     args.add_argument('--write', 
                       default=True, 
@@ -135,13 +146,15 @@ def get_user_args():
 def main():
     parser = get_user_args()
     args = parser.parse_args()
-
-    # TODO: should I change this...?
-    _ = extract_graph_features(prot=args.prot, 
-                               path_data='.',
-                               unidirectional=args.unidirectional, 
-                               filter_inter=args.filter_inter,
-                               write=True)
+    
+    _ = read_data(
+            prot=args.prot, 
+            unidirectional=args.unidirectional, 
+            filter_inter=args.filter_inter,
+            str_uni = args.str_uni,
+            str_inter = args.str_inter,
+            weighted=False
+    )
 
 #_________________________________________________
     
