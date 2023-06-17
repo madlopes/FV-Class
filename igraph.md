@@ -36,8 +36,10 @@ Some files will be generated in the folder previously provided.
 - The  ```_nrint.ea``` file contains the number of interactions.
 
 
-# RODRIGO
+# Auxiliar Step to generate graph
 
-Steps:
+Execute in the docker container:
+> python2.7 ./RINerator_V0.5.1/Source/get_chains.py data/7KVE_relaxed.pdb data/igraph/in/ data/igraph/auxiliar/chains.txt
 
-3 - python2.7 ./RINerator_V0.5.1/Source/get_chains.py data/7KVE_relaxed.pdb data/igraph/in/ data/igraph/auxiliar/chains.txt
+Execute inside the src folder:
+> python produce_graph_features.py
