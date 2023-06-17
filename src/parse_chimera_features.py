@@ -16,12 +16,13 @@ def create_arg_parse():
     # Add the arguments
     parser.add_argument('-ip', '--input_path',
                         type=str,
-                        required=True,
+                        default="../data/chimera/in",
                         help='Path to the folder with contains the txt files to concat')
 
     # Add the arguments
     parser.add_argument('-op', '--output_path',
                         type=str,
+                        default="../data/chimera/out",
                         help='Path to save concataned csv file.')
 
     args = parser.parse_args()
