@@ -54,31 +54,31 @@ def create_data(protein_path:str):
     return data
 
 def create_table(data:Dict[str,np.array]):
-
+   
     # chosing first atribute to start table to be merged with others
     df = pd.DataFrame({"number" : data["kdhydro"][:, 0],
-                    "kdhydro": data["kdhydro"][:, 1]}, 
-                    dtype=np.number)
+                       "kdhydro": data["kdhydro"][:, 1]},
+                      dtype=np.number)
 
     for k, v in data.items():
         if k not in df.columns:
             df = df.merge(pd.DataFrame({"number" : v[:, 0],
                                         k: v[:, 1]}, 
-                                    dtype=np.number),
-                        on="number", how="outer")
+                                       dtype=np.number),
+                          on="number", how="outer")
             
     df["number"] = df["number"].astype(int)
 
     return df
 
-def create_save_location(path:str, protein_name:str):
+def create_save_location(path:str):
 
     if not path:
         Path("results").mkdir(parents=True, exist_ok=True)
-        output_path = os.path.join("results", f"{protein_name}_structure.csv")
+        output_path = os.path.join("results", f"7kve_structure.csv")
     
     elif os.path.isdir(path):
-        output_path = os.path.join(path, f"{protein_name}_structure.csv")
+        output_path = os.path.join(path, f"7kve_structure.csv")
 
     else:
         output_path = path
@@ -89,12 +89,10 @@ def main():
 
     protein_path, output_path = create_arg_parse()
 
-    protein_name = os.path.basename(os.path.realpath(protein_path))
-
     data = create_data(protein_path)
     df = create_table(data)
 
-    save_path = create_save_location(output_path, protein_name)
+    save_path = create_save_location(output_path)
     print(f"Saved in: {save_path}")
 
     df.to_csv(save_path, index=False)
