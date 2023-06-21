@@ -1,5 +1,7 @@
 # **FV-Class**
 
+First and foremost, thanks for you interest in using our computational framework to study FV-deficiency.
+
 A bioinformatics and machine learning framework designed to study FV-deficiency of the **Factor V** (code: **7KVE**), although in the final paper we used a relaxed version of the structure, whose structure you can find [here](./data/7KVE_relaxed.pdb). The paper is available [here](https://doi.org/10.1038/s41598-023-36528-z).
 
 This repository aims to show how the pipeline shown in this figure was built.
