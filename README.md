@@ -53,15 +53,19 @@ The `FV_mutations.csv` dataset available [here](./data/FV_mutations.csv) is the 
 
 # **Cite**
 
-> Ferreira-Martins, A.J., Castaldoni, R., Alencar, B.M. et al. Full-scale network analysis reveals properties of the FV protein structure organization. Sci Rep 13, 9546 (2023). https://doi.org/10.1038/s41598-023-36528-z
+> Ferreira-Martins, A.J., Castaldoni, R., Alencar, B.M. et al. Full-scale network analysis reveals properties of the FV protein structure organization. Scientific Reports 13, 9546 (2023). https://doi.org/10.1038/s41598-023-36528-z
 
 # **Contact**
 
+If you have comments, suggestions or found any issues in our code, please contact us.
+
 André Juan Ferreira Martins:
-- email: andre.jfmdm@gmail.com
+- Email: andre.jfmdm@gmail.com
 
 Rodrigo Cabrera Castaldoni:
-- email: castaldoniro@gmail.com
+- Email: castaldoniro@gmail.com
 
 Tiago Jose da Silva Lopes:
-- email: tiago-jose@ncchd.go.jp
+- Email: tiago-jose@ncchd.go.jp
+
+On behalf of all of the authors, we hope that this computational framework is useful for your research.
